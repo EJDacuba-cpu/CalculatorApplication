@@ -42,9 +42,6 @@ namespace CalculatorApplication
             num1 = Convert.ToDouble(textBox1.Text);
             num2 = Convert.ToDouble(textBox2.Text);
 
-            Console.WriteLine("First Number:" + num1);
-            Console.WriteLine("Second:" + num2);
-
             double result = 0;
             string op = comboBox1.SelectedItem?.ToString();//para sa pagkuha nang napiling operator
 
