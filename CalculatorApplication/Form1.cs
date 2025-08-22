@@ -31,5 +31,16 @@ namespace CalculatorApplication
         {
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double num1, num2;
+
+            num1 = Convert.ToDouble(textBox1.Text);
+            num2 = Convert.ToDouble(textBox2.Text);
+
+            Console.WriteLine("First Number:" + num1);
+            Console.WriteLine("Second:" + num2);
+        }
     }
 }
