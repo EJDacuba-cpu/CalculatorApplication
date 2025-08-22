@@ -67,7 +67,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(384, 325);
+            this.button1.Location = new System.Drawing.Point(559, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 41);
             this.button1.TabIndex = 3;
@@ -90,6 +90,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -113,6 +114,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "FrmCalculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
