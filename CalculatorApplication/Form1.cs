@@ -20,9 +20,9 @@ namespace CalculatorApplication
             InitializeComponent();
             // para makapag initiate sa class na CalculatorcClass.cs
             cal = new CalculatorClass();
-            comboBox1.Items.Add(new object[] { "+", });
+            // para may operator na agad kapag binuksan ang combobox
             comboBox1.SelectedIndex = 0;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+   
 
         }
 
