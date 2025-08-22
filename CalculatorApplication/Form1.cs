@@ -18,13 +18,16 @@ namespace CalculatorApplication
         public Form1()
         {
             InitializeComponent();
-            // para makapag initiate
+            // para makapag initiate sa class na CalculatorcClass.cs
             cal = new CalculatorClass();
+            comboBox1.Items.Add(new object[] { "+", });
+            comboBox1.SelectedIndex = 0;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.AddRange(new object[] { "+", "-", "*", "/", "%", "^" });
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,12 +38,42 @@ namespace CalculatorApplication
         private void button1_Click(object sender, EventArgs e)
         {
             double num1, num2;
-
+            //pagkuha ng values na nakalagay sa textbox at iconvert sa double
             num1 = Convert.ToDouble(textBox1.Text);
             num2 = Convert.ToDouble(textBox2.Text);
 
             Console.WriteLine("First Number:" + num1);
             Console.WriteLine("Second:" + num2);
+
+            double result = 0;
+            string op = comboBox1.SelectedItem?.ToString();//para sa pagkuha nang napiling operator
+
+            if (op == "+")
+            {
+                cal.CalculateEvent += new Formula<double>(cal.GetSum);
+                result = cal.GetSum(num1, num2);
+                cal.CalculateEvent -= new Formula<double>(cal.GetSum);
+            }
+            else if (op == "-")
+            {
+                cal.CalculateEvent += new Formula<double>(cal.GetDifference);
+                result = cal.GetDifference(num1, num2);
+                cal.CalculateEvent -= new Formula<double>(cal.GetDifference);
+            }
+            else if (op == "*")
+            {
+                cal.CalculateEvent += new Formula<double>(cal.GetProduct);
+                result = cal.GetProduct(num1, num2);
+                cal.CalculateEvent -= new Formula<double>(cal.GetProduct);
+            }
+            else if (op == "/")
+            {
+                cal.CalculateEvent += new Formula<double>(cal.Getquotient);
+                result = cal.Getquotient(num1, num2);
+                cal.CalculateEvent -= new Formula<double>(cal.Getquotient);
+            }
+
+            label3.Text = result.ToString();
         }
     }
 }
